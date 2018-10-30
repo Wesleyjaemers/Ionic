@@ -5,13 +5,36 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+    <div class="center-div">
+        <br>
+        <button ion-button (click)="roll()">* roll *</button>
+        <br>
+      </div>
+  <ion-card>
+    <ion-card-content>
+      <div class="center-div">
+        <img src="../../assets/imgs/d{{dice(1)}}.gif">
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <div class="center-div">
+        <img src="../../assets/imgs/d{{dice(2)}}.gif">
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="rolls > 0">
+      <ion-card-header>
+        <ion-card-title>
+          <span class="{{class}}">
+            Rolls: {{rolls}}
+          </span>
+          <hr>
+          <span class="{{class}}">
+            Score: {{score}}
+          </span>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
 </ion-content>
