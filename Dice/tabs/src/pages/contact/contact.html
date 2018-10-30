@@ -1,17 +1,31 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      HighScores
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+  
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+        <ion-row>
+          <ion-col col-2>
+            Score
+          </ion-col>
+          <ion-col>
+            Name
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item *ngFor="let item of items | async">
+        <ion-row>
+          <ion-col col-2>
+            {{item.Score}}
+          </ion-col>
+          <ion-col>
+            {{item.Name}}
+          </ion-col>
+        </ion-row>
+
 </ion-content>

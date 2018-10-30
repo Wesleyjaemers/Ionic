@@ -1,14 +1,28 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { ScoreItem } from '../home/home';
+
+export interface ScoreItem {
+  Score: number;
+  Rolls: number;
+  Name: string;
+}
 
 @Component({
-  selector: 'page-contact',
-  templateUrl: 'contact.html'
+  selector: 'page-highscore',
+  templateUrl: 'highscore.html'
 })
+
 export class ContactPage {
 
-  constructor(public navCtrl: NavController) {
+  items: Observable<any[]>;
 
+  constructor(
+    public navCtrl: NavController,
+    private db: AngularFirestore
+  ) {
+    this.items = db.collection<ScoreItem>('items').valueChanges();
   }
-
 }
